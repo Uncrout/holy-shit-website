@@ -1,0 +1,349 @@
+/* 
+Table of content:
+1. Basics
+    - Normalize CSS
+    - All selector
+    - Variables
+2. Typography
+    - Headings
+3. Head
+    - Nav
+3. Main
+4. Footer
+5. Media Queries
+    - Mobile: Width <= 600 px
+    - 601 px <= Width <= 1199 px
+    - Width >= 1200 px
+6. Parallax
+7. Layout
+    - Round Images
+*/
+
+/*
+1. Basics
+*/
+
+/* Normalize CSS */
+body, 
+html {
+    height: 100%;
+    background-color: var(--color-background-light);
+    box-sizing: border-box;
+    /* Fixing anchor tag hidden below navbar after jump */
+    scroll-padding-top: 150px;
+}
+/* All selector */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Variables */
+:root {
+    /* Fonts */
+    --font-family-heading: 'Roboto', sans-serif;
+    --font-family-body: 'Roboto', sans-serif;
+
+    /* Font Sizes */
+    --font-size-heading: #;
+    --font-size-body: #;
+
+    /* Colors */
+    --color-primary:#37373a;
+    --color-secondary:#494949;
+    --color-light-background:#F3F3F3;
+    --color-dark-background: #37373a;
+    --color-hero-bg: #A7BCD6;
+    --color-link-active: #A7BCD6;
+    --color-navbar-background: #DFDFDF;
+    --color-notblack: #313131;
+
+    /* Hero-Image*/
+    --hero-image: url(img/bg/grob_resized.jpg);
+    --hero-image-mobile: url(img/bg/mobile.png);
+}
+
+/*
+2. Typography
+*/
+
+/* Headings */
+.logo {
+    text-align: center;
+}
+.logo a:hover {
+    color: var(--font-family-heading);
+}
+h1, h2 {
+    font-family: var(--font-family-heading);
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+p, ul {
+    font-family: var(--font-family-body);
+    line-height: 1.6;
+    color: var(--color-secondary);
+    list-style-type: none;
+}
+p, h1, h2{
+    margin: 1em;
+}
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    /*
+    border-bottom: 2px solid var(--color-primary);
+    */
+}
+a:hover, a:focus {
+    color: var(--color-link-active);
+    /*
+    border-bottom: 2px solid var(--color-link-active);
+    */
+}
+.headline {
+    font-family: var(--font-family-heading);
+    color: var(--color-light-background);
+    font-size: clamp(2rem, 4vw, 8em);
+    text-shadow: 1px 1px 4px var(--color-secondary);
+}
+
+/* 
+3. Header
+*/
+
+/* Nav */
+nav {
+    background-color: #fff;
+    padding: 1em;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    
+    /* Always on top */
+    z-index: 9999;
+}
+.logo {
+    display: inline;
+    margin-left: auto;
+}
+.logo_img {
+    width: 9%;
+}
+nav ul li {
+    display: inline-block;
+}
+nav ul li a{
+    padding: 0.5em;
+}
+
+.nav-links a{
+    margin-right: auto;
+    margin: 0.5em;
+    padding-top: 90px;
+
+}
+
+/*
+4. Main
+*/
+
+.team-photo {
+    width: 60%;
+    display: block;
+    padding-bottom: 30px;
+}
+
+.profile-photo {
+    width: 20%;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    display: inline-block;
+    padding: 30px;
+}
+
+.photo {
+    margin: auto;
+}
+
+div {
+    margin: 5em 0;
+}
+
+.mail-link {
+    text-align: center;
+    font-weight: bold;
+}
+
+/*
+ Impressum
+*/
+
+.impressum h2 {
+    margin-left: 0;
+    text-align: left;
+}
+
+/* 
+4. Footer
+*/
+
+footer {
+    text-align: center;
+    background-color: var(--color-dark-background);
+    color: var(--color-light-background);
+    padding: 1em;
+}
+footer p,
+footer li,
+footer a{
+    padding: 0em 0em 0.1em 0em;
+    margin: 0em 1em 1em 1em;
+    color: var(--color-light-background);
+    background-color: var(--color-dark-background);
+}
+footer p{
+    padding: 1em;
+}
+footer li {
+    display: inline;
+}
+/*
+footer a {
+    border-bottom: 2px solid var(--color-light-background);
+}
+footer a:hover {
+    border-bottom: 2px solid var(--color-link-active);
+}
+*/
+
+/*
+5. Media Queries
+*/
+
+/* Mobile */
+@media all and (max-width: 600px) {
+    .logo {
+        display: block;
+    }
+    nav ul {
+        text-align: center;
+    }
+    .teamphoto {
+        width: 100%;
+    }
+    .parallax {
+        background-image: var(--hero-image-mobile);
+    }
+    .profile-photo {
+        width: 68%;
+        padding: 10px;
+    }
+    .headline {
+        margin-top: -50px
+    }
+    .logo_img, .logo_img_a {
+        width: 12%;
+    }
+}
+
+@media all and (min-width: 601px) and (max-width: 1199px) {
+    p {
+        margin: 2em 5em 5em 5em;
+    }
+    nav ul {
+        float: right;
+    }
+    .mail-link {
+        margin: -2em 5em 5em 5em;
+    }
+    .profile-photo {
+        width: 24%;
+        padding: 30px;
+    }
+    .parallax {
+        background-image: var(--hero-image);
+    }
+    .headline {
+        margin-top: -30px
+    }
+    .logo_img, .logo_img_a {
+        width: 9%;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    p {
+        margin: 2em 10em 10em 10em;
+    }
+    nav ul {
+        float: right;
+    }
+    .wer {
+        margin: 2em 10em 5em 10em;
+    }
+    .mail-link {
+        margin: -2em 10em 5em 10em;
+    }
+    .profile-photo {
+        width: 24%;
+        padding: 30px;
+    }
+    .parallax {
+        background-image: var(--hero-image);
+    }
+    .headline {
+        margin-top: -30px
+    }
+    .logo_img, .logo_img_a {
+        width: 6%;
+    }
+}
+/* ===========
+6. Parallax
+============== */
+
+.parallax {
+    /* BG with color gradient
+    background-image: linear-gradient( rgba(167, 188, 214,1), rgba(167, 188, 214,0));*/
+
+    /* BG-Image */
+    /* background-image: var(--hero-image); */
+  
+    /* Set a specific height */
+    height: 100vh;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Position */
+    top: 0; /* Position the navbar at the top of the page */
+    
+    padding: 0;
+    margin: 0;
+}
+
+/* 
+7. Layout
+*/
+.css-grid-parent {
+    display: grid;
+    place-items: center;
+}
+
+/* Round Images */
+.round {
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+}
